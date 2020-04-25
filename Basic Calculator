@@ -1,0 +1,57 @@
+use std::io::{self,Write};
+fn main(){
+    println!("  *********************************\n");
+    println!("  *****RUST My BASIC CALCULATOR****\n");
+    println!("  *********************************\n");
+    loop{
+    let mut int1 = String::new();
+    print!("Enter First Integer value:");
+    let _=io::stdout().flush();
+    io::stdin().read_line(&mut int1)
+        .expect("Failed to read your input");
+        let integer1: f32 =int1.trim().parse()
+        .expect("Please type a number");
+
+    let mut opr = String::new();
+    print!("Enter Opration oprator:");
+    let _=io::stdout().flush();
+    io::stdin().read_line(&mut opr)
+        .expect("Failed to read your input");
+         let oprt: char = opr.trim().parse()
+        .expect("Please type a number");
+
+    let mut int2 = String::new();
+    print!("Enter Second Integer value:");
+    let _=io::stdout().flush();
+    io::stdin().read_line(&mut int2)
+        .expect("Failed to read your input");
+    let integer2: f32 =int2.trim().parse()
+        .expect("Please type a number");
+        //Calculation
+        let add=integer1+integer2;
+        let sub=integer1-integer2;
+        let mul=integer1*integer2;
+        let div=integer1/integer2;
+        let exp=integer1.powf(integer2);
+
+            match opr.trim() {
+            "+" => println!("You do Addition of {} and {} which is = {}",integer1,integer2,add),
+            "-" => println!("You do Subtracion of {} and {} which is = {}",integer1,integer2,sub),
+            "*" => println!("You do Multiplication of {} and {} which is = {}",integer1,integer2,mul),
+            "/" => println!("You do Division of {} and {} which is = {}",integer1,integer2,div),
+            "^" => println!("You do Exponent of {} and {} which is = {}",integer1,integer2,exp),
+            _ => println!("Invalid Opration Entered"),
+            }
+                print!("");
+                let mut agn = String::new();
+                print!("\n");
+                print!("Would you like to calculate again? (y/n):");
+                let _=io::stdout().flush();
+                io::stdin().read_line(&mut agn)
+                .expect("Failed to read your input");
+                //Program termination check
+                if agn.trim()=="n"{
+                    break;
+                }
+    }        
+}
