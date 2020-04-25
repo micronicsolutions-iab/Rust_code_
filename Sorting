@@ -1,0 +1,23 @@
+use std::io::{self,Write};
+fn main(){
+    let mut int = String::new();
+    print!("Enter String which you want to copy:");
+    let _=io::stdout().flush();
+    io::stdin().read_line(&mut int)
+        .expect("Failed to read your input");
+         
+    let mut int1 = String::new();
+    print!("How many copies of String you need:....");
+    let _=io::stdout().flush();
+    io::stdin().read_line(&mut int1 )
+        .expect("Failed to read your input");
+         let nint: i32 = int1.trim().parse()
+        .expect("Please type a number");
+  print!("{} Copies of '{}' are:...",nint,int.trim());
+  
+  let mut z :String;
+    for a in 0..nint{
+     print!("{}.) {}  ",a,int.trim());
+    }
+         println!(" ");
+}
